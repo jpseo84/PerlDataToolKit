@@ -22,7 +22,7 @@ sub process_file {
     $output_file_path .= '_output.txt';
     open my $output_file, '>:encoding(UTF-8)', $output_file_path or die "Cannot open output file: $!";
 
-    # UTF-8 Check
+    # UTF-8 체크
     use Encode::Guess;
     open my $target_file, '<', $target_file_path or die "Cannot open target file: $!";
     my $checker;
@@ -32,7 +32,7 @@ sub process_file {
     my $decoder = guess_encoding($checker);
     if (ref($decoder)) {
         if ($decoder->name eq 'utf8') {
-            # Open the file only when the encoding is utf8
+            # UTF8인 경우에만 진행하고 아닌 경우 에러
             open $target_file, '<:encoding(UTF-8)', $target_file_path or die "Cannot open target file: $!";
             while (my $line = <$target_file>) {
                 if (grep { $dictionary{lc $_} } split /[\W_]+/u, $line) {
