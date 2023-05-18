@@ -25,11 +25,11 @@ sub process_file {
     # UTF-8 Check
     use Encode::Guess;
     open my $target_file, '<', $target_file_path or die "Cannot open target file: $!";
-    my $first_few_bytes;
-    read($target_file, $first_few_bytes, 512) or die "Cannot read from file: $!";
+    my $checker;
+    read($target_file, $checker, 1024) or die "Cannot read from file: $!";
     close $target_file;
 
-    my $decoder = guess_encoding($first_few_bytes);
+    my $decoder = guess_encoding($checker);
     if (ref($decoder)) {
         if ($decoder->name eq 'utf8') {
             # Open the file only when the encoding is utf8
