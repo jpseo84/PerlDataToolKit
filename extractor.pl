@@ -22,10 +22,7 @@ sub process_file {
     $output_file_path .= '_output.txt';
     open my $output_file, '>:encoding(UTF-8)', $output_file_path or die "Cannot open output file: $!";
 
-    # UTF-8 체크
-    use Encode::Guess;
-    open my $target_file, '<', $target_file_path or die "Cannot open target file: $!";
-    my $checker;
+    # Check UTF-8 encoding
     read($target_file, $checker, 1024) or die "Cannot read from file: $!";
     close $target_file;
 
