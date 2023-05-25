@@ -23,7 +23,8 @@ sub process_file {
     open my $output_file, '>:encoding(UTF-8)', $output_file_path or die "Cannot open output file: $!";
 
     # Check UTF-8 encoding
-    read($target_file, $checker, 1024) or die "Cannot read from file: $!";
+    open my $target_file, '<', $target_file_path or die "Cannot open target file: $!";
+    read($target_file, my $checker, 1024) or die "Cannot read from file: $!";
     close $target_file;
 
     my $decoder = guess_encoding($checker);
