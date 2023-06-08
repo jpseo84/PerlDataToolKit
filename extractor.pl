@@ -59,3 +59,4 @@ my $hours = int($elapsed_time / 3600);
 my $minutes = int(($elapsed_time % 3600) / 60);
 my $seconds = $elapsed_time % 60;
 printf("Elapsed time: %02d:%02d:%02d (or %.2f seconds)\n", $hours, $minutes, $seconds, $elapsed_time);
+
