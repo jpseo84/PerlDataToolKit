@@ -33,8 +33,11 @@ sub process_file {
             # UTF8인 경우에만 진행하고 아닌 경우 에러
             open $target_file, '<:encoding(UTF-8)', $target_file_path or die "Cannot open target file: $!";
             while (my $line = <$target_file>) {
-                if (grep { $dictionary{lc $_} } split /[\W_]+/u, $line) {
-                    print $output_file $line;
+                foreach my $dict_word (keys %dictionary) {
+                    if ($line =~ /\b\Q$dict_word\E\b/i) {
+                        print $output_file $line;
+                        last;
+                    }
                 }
             }
             close $target_file;
@@ -59,4 +62,3 @@ my $hours = int($elapsed_time / 3600);
 my $minutes = int(($elapsed_time % 3600) / 60);
 my $seconds = $elapsed_time % 60;
 printf("Elapsed time: %02d:%02d:%02d (or %.2f seconds)\n", $hours, $minutes, $seconds, $elapsed_time);
-
