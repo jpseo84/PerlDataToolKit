@@ -1,5 +1,5 @@
 ###########################################################################
-# CryptoCurrency Wallet Verifier 0.1                                      #
+# Text line extractor (extractor) 0.1                                     #
 # Copyright (C) 2023 Jupyo Seo                                            #
 # This program is free software; you can redistribute it and/or modify    #
 # it under the terms of the GNU General Public License as published by    #
@@ -24,7 +24,7 @@ use utf8;
 use Time::HiRes qw(time);
 use Encode::Guess;
 
-print "Version 0.1, Copyright (C) 2023 Jupyo Seo\n";
+print "Extractor, as part of the Perl Data Toolkit Version 0.1, Copyright (C) 2023 Jupyo Seo\n";
 print "This program comes with ABSOLUTELY NO WARRANTY;\n";
 print "This is free software, and you are welcome to redistribute it under certain conditions; see the provided LICENSE file for details.\n\n";
 
