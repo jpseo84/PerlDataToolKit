@@ -1,5 +1,5 @@
 ###########################################################################
-# CryptoCurrency Wallet Verifier 0.1                                      #
+# Text Encoding Converter (encconvert) 0.1                                #
 # Copyright (C) 2023 Jupyo Seo                                            #
 # This program is free software; you can redistribute it and/or modify    #
 # it under the terms of the GNU General Public License as published by    #
@@ -24,13 +24,13 @@ use Encode;
 use Encode::Guess;
 use File::Basename;
 
-print "Version 0.1, Copyright (C) 2023 Jupyo Seo\n";
+print "Encconvert, as part of the Perl Data Toolkit Version 0.1, Copyright (C) 2023 Jupyo Seo\n";
 print "This program comes with ABSOLUTELY NO WARRANTY;\n";
 print "This is free software, and you are welcome to redistribute it under certain conditions; see the provided LICENSE file for details.\n\n";
 
 my $file = $ARGV[0] or die "Usage: $0 <filename>\n";
 
-# 처음 100KB 만 읽어오도록 수정(대용량 원장은 처리시 에러남)
+# Read the first 100KB only - prevent errors when processing a large GL file
 open my $fh, '<', $file or die "Could not open '$file': $!";
 my $buffer;
 my $read_bytes = read $fh, $buffer, 100 * 1024;
