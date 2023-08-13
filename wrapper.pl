@@ -20,55 +20,56 @@
 
 use strict;
 use warnings;
-use Encode;
-use Encode::Guess;
-use File::Basename;
 
+# Print your statements
 print "Version 0.1, Copyright (C) 2023 Jupyo Seo\n";
 print "This program comes with ABSOLUTELY NO WARRANTY;\n";
 print "This is free software, and you are welcome to redistribute it under certain conditions; see the provided LICENSE file for details.\n\n";
 
-my $file = $ARGV[0] or die "Usage: $0 <filename>\n";
-
-# 처음 100KB 만 읽어오도록 수정(대용량 원장은 처리시 에러남)
-open my $fh, '<', $file or die "Could not open '$file': $!";
-my $buffer;
-my $read_bytes = read $fh, $buffer, 100 * 1024;
-close $fh;
-
-# Guess file encoding
-my $enc = guess_encoding($buffer, qw/euc-kr utf-8/);
-if (ref($enc)) {
-    print "The detected encoding is: ", $enc->name, "\n";
-} else {
-    print "Could not guess the encoding: $enc\n";
-    exit;
+# Ensure an input file is provided
+unless ($ARGV[0]) {
+    die "Usage: $0 <input_filename> [output_filename]\n";
 }
 
-print "Do you want to convert the file to UTF-8? (y/n): ";
-my $response = <STDIN>;
-chomp $response;
+my $input_filename = $ARGV[0];
+my $output_filename = $ARGV[1] || $input_filename =~ s/\.\w+$//r . "_wrapped.txt";
 
-if (lc($response) eq 'y') {
-    # Separate filename and extension
-    my ($basename, $dir, $ext) = fileparse($file, qr/\.[^.]*/);
+open my $infile, '<', $input_filename or die "Couldn't open file $input_filename: $!";
 
-    open my $in_fh, '<', $file or die "Could not open '$file': $!";
-    my $output_file = "${dir}${basename}_utf8${ext}";
-    open my $out_fh, '>', $output_file or die "Could not open '$output_file': $!";
+open my $outfile, '>', $output_filename or die "Couldn't open file $output_filename: $!";
 
-    my $chunk_size = 64 * 1024; # Chunk sized as 64KB
-    while (my $bytes_read = read $in_fh, my $chunk, $chunk_size) {
-        my $decoded_chunk = decode($enc->name, $chunk);
-        my $encoded_chunk = encode("utf-8", $decoded_chunk);
-        print $out_fh $encoded_chunk;
+my $min_len = 140;
+my $max_len = 150;
+my $current_len = 0;
+my @current_line;
+
+# Read the entire file into a scalar
+local $/;
+my $content = <$infile>;
+
+# Split based on any recognized line ending
+my @lines = split /\r\n|\n|\r/, $content;
+
+foreach my $line (@lines) {
+    my @words = split(/\s+/, $line);
+
+    foreach my $word (@words) {
+        if ($current_len + length($word) > $max_len) {
+            print $outfile join(' ', @current_line) . "\n";
+            $current_len = 0;
+            @current_line = ();
+        }
+        push @current_line, $word;
+        $current_len += length($word) + 1;
     }
-
-    close $in_fh;
-    close $out_fh;
-
-    print "Converted file saved as '$output_file'\n";
-} else {
-    print "Conversion aborted.\n";
+    
+    # Print and reset at the end of original line
+    print $outfile join(' ', @current_line) . "\n";
+    $current_len = 0;
+    @current_line = ();
 }
 
+close $infile;
+close $outfile;
+
+print "Wrapped text saved to $output_filename\n";
