@@ -21,6 +21,10 @@
 use strict;
 use warnings;
 
+print "Delimiter Predictor, as part of the Perl Data Toolkit Version 0.1, Copyright (C) 2023 Jupyo Seo\n";
+print "This program comes with ABSOLUTELY NO WARRANTY;\n";
+print "This is free software, and you are welcome to redistribute it under certain conditions; see the provided LICENSE file for details.\n\n";
+
 sub predict_delimiter {
     my ($file_path) = @_;
     my @delimiters = ('|', ';', ',', "\t");
