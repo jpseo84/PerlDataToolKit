@@ -30,7 +30,7 @@ Extractor 는 텍스트 파일(Plain text file)로부터 특정 문자열을 포
 
 ## 사용 방법
 Perl 인터프리터가 설치된 환경에서 사용할 수 있으며, extractor.pl 뒤에 대상 파일명과 추출 기준이 될 문자열을 포함한 사전(Dictionary) 파일을 작성하고 실행합니다.
-> perl extractor <target-file-name> <dictionary-file-name>
+> perl extractor.pl <target-file-name> <dictionary-file-name>
 
 
 # 저자 및 저작권
