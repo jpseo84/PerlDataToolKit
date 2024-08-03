@@ -1,0 +1,60 @@
+date,creator,data
+2023-09-01,Lee Minho,The company picnic is scheduled for next month at Hangang Park.
+2023-09-02,Kim Yuna,Our quarterly financial report shows a 5% increase in revenue.
+2023-09-03,Park Bogum,The new coffee machine in the break room is a hit among employees.
+2023-09-04,Son Yejin,We're considering expanding our operations to Southeast Asia next year.
+2023-09-05,Bae Suzy,The marketing team is working on a new social media campaign.
+2023-09-06,Gong Yoo,Our customer satisfaction survey results show improvement in service quality.
+2023-09-07,IU,The company will be closed for the Chuseok holiday from September 28th to October 1st.
+2023-09-08,Lee Jong Suk,We're upgrading our office furniture to improve ergonomics.
+2023-09-09,Park Shin Hye,The annual company sports day will be held on October 15th.
+2023-09-10,Kim Soo Hyun,Our R&D team has filed three new patents this quarter.
+2023-09-11,Jun Ji Hyun,We're introducing a new employee wellness program next month.
+2023-09-12,Hyun Bin,The company's sustainability efforts have reduced our carbon footprint by 10%.
+2023-09-13,Song Hye Kyo,We're partnering with a local university for an internship program.
+2023-09-14,Lee Seung Gi,The new product launch event is scheduled for November 5th.
+2023-09-15,Park Bo Young,Our customer support team has achieved a 98% satisfaction rate this month.
+2023-09-16,Jo In Sung,We're implementing a new project management software across all departments.
+2023-09-17,Han Hyo Joo,The company library has been updated with new books and digital resources.
+2023-09-18,Jang Geun Suk,We're excited to announce that we've reached 1 million customers worldwide.
+2023-09-19,Kim Tae Hee,The annual performance reviews will begin next week.
+2023-09-20,So Ji Sub,우리 회사가 올해의 최고 직장 상을 수상했습니다.
+2023-08-01,Kim Minseo,We implemented a new Access Control system to enhance our security measures.
+2023-08-02,Lee Jiwon,The IT team is considering Acronis for our backup solution needs.
+2023-08-03,Park Hyunjin,Active Directory integration with our current systems is almost complete.
+2023-08-04,Choi Yeona,Ahnlab's antivirus software detected and removed a potential threat today.
+2023-08-05,Kang Dongho,We're evaluating Akamai Kona as a potential web application firewall solution.
+2023-08-06,Yoon Seokhee,The security team is using AlienVault for threat detection and response.
+2023-08-07,Jeong Minho,Our new Antivirus policy requires weekly scans on all company devices.
+2023-08-08,Seo Jiyeon,We're scheduling an AppScan of our web applications for next week.
+2023-08-09,Kwon Eunbi,The cybersecurity team is investigating a potential APT attack.
+2023-08-10,Lim Woojin,ArcSight SIEM has been crucial in monitoring our network security events.
+2023-08-11,Shin Donghyuk,We're transitioning from Avast to AVG Antivirus for our endpoint protection.
+2023-08-12,Han Soyeon,The IT department is implementing a new Backup strategy using Barracuda.
+2023-08-13,Jang Minhee,Beyondtrust's privileged access management solution is now fully operational.
+2023-08-14,Ko Sunghoon,BitDefender has been effective in protecting our systems from recent malware threats.
+2023-08-15,Bae Joohyun,We're considering Bitglass for our cloud access security broker needs.
+2023-08-16,Im Nayeon,Carbon Black is being deployed for enhanced endpoint detection and response.
+2023-08-17,Oh Sehun,New CCTV systems are being installed to improve physical security.
+2023-08-18,Kim Taeyeon,The development team is integrating ChakraMax for better performance and security.
+2023-08-19,Park Jinyoung,Checkpoint firewalls are being updated to the latest version this weekend.
+2023-08-20,Lee Daehwi,CipherCloud is helping us secure our cloud-based applications and data.
+2023-08-21,Choi Soobin,Cisco Adaptive Security Appliance has been crucial for our network protection.
+2023-08-22,Kang Daniel,We're implementing Cisco Umbrella for improved DNS security.
+2023-08-23,Song Yuqi,The IT team is configuring Citrix for secure remote access to our systems.
+2023-08-24,Jung Hoseok,Cloudflare WAF has significantly reduced our exposure to web-based attacks.
+2023-08-25,Kim Jennie,CPPM (ClearPass Policy Manager) is being set up for network access control.
+2023-08-26,Lee Jeno,Crowdstrike Falcon is now our primary endpoint protection platform.
+2023-08-27,Park Chaeyoung,We're using Cyberark for privileged account security management.
+2023-08-28,Jeon Jungkook,DBSafer is being implemented to enhance our database security measures.
+2023-08-29,Hwang Yeji,Our DevSecOps practices now include regular security audits and penetration testing.
+2023-08-30,Kim Mingyu,새로운 개인정보 보호 정책이 다음 주부터 시행될 예정입니다.
+2023-09-03,Park Bogum,The new coffee machine in the break room is a hit among employees.
+2023-09-04,Son Yejin,We're considering expanding our operations to Southeast Asia next year.
+2023-09-05,Bae Suzy,The marketing team is working on a new social media campaign.
+2023-09-06,Gong Yoo,Our customer satisfaction survey results show improvement in service quality.
+2023-09-07,IU,The company will be closed for the Chuseok holiday from September 28th to October 1st.
+2023-09-08,Lee Jong Suk,We're upgrading our office furniture to improve ergonomics.
+2023-09-09,Park Shin Hye,The annual company sports day will be held on October 15th.
+2023-09-10,Kim Soo Hyun,Our R&D team has filed three new patents this quarter.
+2023-09-11,Jun Ji Hyun,We're introducing a new employee wellness program next month.
