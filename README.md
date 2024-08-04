@@ -16,8 +16,8 @@ Encconvert 는 텍스트 파일(Plain text file)의 텍스트 인코딩을 편�
 
 ## 사용 방법
 Perl 인터프리터가 설치된 환경에서 사용할 수 있으며, encconvert.pl <filename> 형태로 실행합니다. 파이썬 버전의 경우에도 사용법은 동일하므로, 인터프리터 명과 프로그램 파일명만 정확하게 기입하면 동일하게 작동합니다.
-> perl encconvert.pl filename.txt
-> python encconvert.py filename.txt
+> perl encconvert.pl filename.txt  
+> python encconvert.py filename.txt  
 
 # Extractor - 문자열 기반 텍스트 데이터 추출기
 Extractor 는 텍스트 파일(Plain text file)로부터 특정 문자열을 포함한 일련의 데이터 행들을 일괄 추출하기 위하여 Perl 로 작성되었습니다. Perl 의 기본 라이브러리를 활용하였기 떄문에 Unix 의 기본 내장 명령어 셋(sed, awk 등)과 거의 동일하게 빠른 속도로 데이터를 처리할 수 있습니다. 
@@ -30,8 +30,8 @@ Extractor 는 텍스트 파일(Plain text file)로부터 특정 문자열을 포
 
 ## 사용 방법
 Perl 인터프리터가 설치된 환경에서 사용할 수 있으며, extractor.pl 뒤에 대상 파일명과 추출 기준이 될 문자열을 포함한 사전(Dictionary) 파일을 작성하고 실행합니다. 파이썬 버전의 경우에도 사용법은 동일하므로, 인터프리터 명과 프로그램 파일명만 정확하게 기입하면 동일하게 작동합니다.
-> perl extractor.pl target.csv dictionary.txt
-> python extractor.pl target.csv dictionary.txt
+> perl extractor.pl target.csv dictionary.txt  
+> python extractor.pl target.csv dictionary.txt  
 
 # 저자 및 저작권
 서주표(Jupyo Seo), 2023
