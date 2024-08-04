@@ -33,6 +33,12 @@ Perl 인터프리터가 설치된 환경에서 사용할 수 있으며, extracto
 > perl extractor.pl target.csv dictionary.txt  
 > python extractor.pl target.csv dictionary.txt  
 
+# 테스트용 파일
+두 개의 테스트용 파일이 함께 제공됩니다.
+* test_euckr.txt: Encconvert 를 테스트하기 위한 파일로 EUC-KR 인코딩으로 작성된 파일입니다.
+* test.csv: Extractor 를 테스트하기 위한 파일로 함께 제공되는 Dictionary 파일과 함께 사용할 수 있습니다.
+> perl extractor.pl test.csv dictionary.txt
+
 # 저자 및 저작권
-서주표(Jupyo Seo), 2023
-본 프로그램의 사용권에 대해서는 별첨 LICENSE 파일을 확인하시기 바랍니다. 국문 버전은 LICENSE_KR 로 제공됩니다.
+서주표(Jupyo Seo), 2023  
+본 프로그램은 GPL 2.0 을 따르며, 상세한 사용권에 대해서는 별첨 LICENSE 파일을 확인하시기 바랍니다. 국문 버전은 LICENSE_KR 로 제공됩니다.
