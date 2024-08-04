@@ -18,7 +18,8 @@ def load_dictionary(dictionary_file_path):
 def process_file(target_file_path, dictionary_file_path):
     dictionary = load_dictionary(dictionary_file_path)
     
-    output_file_path = Path(target_file_path).with_suffix('_output.txt')
+    target_path = Path(target_file_path)
+    output_file_path = target_path.with_name(f"{target_path.stem}_output{target_path.suffix}")
 
     chunk_size = 1024 * 1024  # 1 MB
     with open(target_file_path, 'rb') as f:
