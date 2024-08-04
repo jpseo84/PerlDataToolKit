@@ -23,6 +23,7 @@ use warnings;
 use utf8;
 use Time::HiRes qw(time);
 use Encode::Guess;
+use File::Basename;
 
 print "Extractor, as part of the Perl Data Toolkit Version 0.1, Copyright (C) 2023 Jupyo Seo\n";
 print "This program comes with ABSOLUTELY NO WARRANTY;\n";
@@ -40,8 +41,8 @@ sub process_file {
     }
     close $dictionary_file;
 
-    my ($output_file_path) = $target_file_path =~ /^(.+)\.[^.]+$/;
-    $output_file_path .= '_output.txt';
+    my ($name, $path, $suffix) = fileparse($target_file_path, qr/\.[^.]*/);
+    my $output_file_path = $path . $name . '_output' . $suffix;
     open my $output_file, '>:encoding(UTF-8)', $output_file_path or die "Cannot open output file: $!";
 
     # Check UTF-8 encoding
