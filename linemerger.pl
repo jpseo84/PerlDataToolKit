@@ -1,22 +1,25 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use Getopt::Long;
+
+# Command-line options
+my $keep_original = 0;  # Default: Overwrite original file
+GetOptions("k" => \$keep_original);
 
 # Check if filename is provided
 if (@ARGV < 1) {
-    die "Usage: $0 <input_file>\n";
+    die "Usage: $0 [-k] <input_file>\n  -k : Keep original file, output to target_output.txt\n";
 }
 
 # Get the input file from command-line argument
 my $input_file = $ARGV[0];
-
-# Define output files
-my $processed_file   = "$input_file.processed.txt";
+my $output_file = $keep_original ? "$input_file.output.txt" : "$input_file.tmp";
 my $unprocessed_file = "$input_file.unprocessed.txt";
 
 # Open input file
 open(my $in, '<', $input_file) or die "Cannot open input file: $!";
-open(my $proc, '>', $processed_file) or die "Cannot open processed file: $!";
+open(my $out, '>', $output_file) or die "Cannot open output file: $!";
 open(my $unproc, '>', $unprocessed_file) or die "Cannot open unprocessed file: $!";
 
 my $prev_line = "";  # Store previous line
@@ -33,42 +36,52 @@ while (my $line = <$in>) {
         next;
     }
 
-    # If the sum of two adjacent lines' pipes is between 24 and 26, merge them
+    # Merge if sum of pipes in two adjacent lines is between 24 and 26
     if (($prev_pipe_count + $pipe_count) >= 24 && ($prev_pipe_count + $pipe_count) <= 26) {
-        # Ensure the first line has more pipes and starts with data
         if ($prev_pipe_count > $pipe_count && $prev_line =~ /^\S/) {
-            # Append a pipe if the first line has significantly fewer than expected
             if ($prev_pipe_count < 25) {
-                $prev_line .= "|";
+                $prev_line .= "|";  # Append a pipe if needed
             }
-
-            # Merge and save
-            print $proc "$prev_line $line\n";
+            print $out "$prev_line $line\n";  # Write fixed line
         } else {
             print $unproc "$prev_line\n$line\n";  # Save unprocessed
         }
-        # Reset previous line storage
         $prev_line = "";
         $prev_pipe_count = 0;
         next;
     }
 
-    # If it doesn’t match, write the previous line to unprocessed
-    print $unproc "$prev_line\n";
+    # If line is already well-formed (25 pipes), write it directly
+    if ($prev_pipe_count == 25) {
+        print $out "$prev_line\n";
+    } else {
+        print $unproc "$prev_line\n";  # Save unprocessed
+    }
 
     # Store current line as the new previous line
     $prev_line = $line;
     $prev_pipe_count = $pipe_count;
 }
 
-# Write any remaining line to unprocessed file
+# Write remaining line
 if ($prev_line ne "") {
-    print $unproc "$prev_line\n";
+    if ($prev_pipe_count == 25) {
+        print $out "$prev_line\n";
+    } else {
+        print $unproc "$prev_line\n";
+    }
 }
 
 # Close file handles
 close $in;
-close $proc;
+close $out;
 close $unproc;
 
-print "Cleaning complete! Check '$processed_file' and '$unprocessed_file'.\n";
+# Replace the original file if not using -k option
+if (!$keep_original) {
+    rename $output_file, $input_file or die "Error replacing file: $!";
+}
+
+print "Processing complete!\n";
+print "  - Corrected output: " . ($keep_original ? "$output_file\n" : "$input_file (overwritten)\n");
+print "  - Unprocessed lines: $unprocessed_file\n";
