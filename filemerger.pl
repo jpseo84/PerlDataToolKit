@@ -20,9 +20,9 @@
 use strict;
 use warnings;
 
-print "FileMerger, as part of the Perl Data Toolkit Version 0.1, Copyright (C) 2024 Jupyo Seo\n";
-print "This program comes with ABSOLUTELY NO WARRANTY;\n";
-print "This is free software, and you are welcome to redistribute it under certain conditions; see the provided LICENSE file for details.\n\n";
+print STDERR "FileMerger, as part of the Perl Data Toolkit Version 0.1, Copyright (C) 2024 Jupyo Seo\n";
+print STDERR "This program comes with ABSOLUTELY NO WARRANTY;\n";
+print STDERR "This is free software, and you are welcome to redistribute it under certain conditions; see the provided LICENSE file for details.\n\n";
 
 # Check if at least one file is provided
 if (@ARGV < 1) {
